@@ -1,0 +1,746 @@
+2025-01-29 17:11:15,746 - invoice_extraction_bot - INFO - Initialized Groq model.
+2025-01-29 17:11:19,747 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-01-29 17:11:48,514 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-01-29 17:11:57,335 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-01-29 17:11:59,271 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-01-29 17:11:59,278 - invoice_extraction_bot - INFO - Processing PDF file: invoice_1001329.pdf
+2025-01-29 17:11:59,281 - invoice_extraction_bot - INFO - Processing file: invoice_1001329.pdf
+2025-01-29 17:11:59,282 - invoice_extraction_bot - INFO - Starting PDF text extraction.
+2025-01-29 17:11:59,313 - invoice_extraction_bot - INFO - PDF text extraction completed.
+2025-01-29 17:11:59,314 - invoice_extraction_bot - DEBUG - Extracted Raw Data: ExcelCult
+India
+Bill To
+Ms.Santoshi
+Mumbai, India
+Santoshvarma0988@gmail.com
+9999999999
+ 
+  
+Invoice no.
+1001329
+Date
+5/4/2023
+Description
+Quantity
+Unit price
+Amount
+Total
+$2,200.00
+Office Chair
+2
+$1,100.00
+$2,200.00
+System Generated
+ 
+2025-01-29 17:11:59,314 - invoice_extraction_bot - INFO - Sending data to Groq API for extraction.
+2025-01-29 17:11:59,996 - invoice_extraction_bot - DEBUG - Groq API Response: Here are the extracted values:
+
+* Invoice no.: 1001329
+* Description: Office Chair
+* Quantity: 2
+* Date: 5/4/2023
+* Unit price: 1100.00
+* Amount: 2200.00
+* Total: 2200.00
+* Email: Santoshvarma0988@gmail.com
+* Phone number: 9999999999
+* Address: Mumbai, India
+
+After removing the dollar symbols, the output is:
+
+{
+    'Invoice no.': '1001329',
+    'Description': 'Office Chair',
+    'Quantity': '2',
+    'Date': '5/4/2023',
+    'Unit price': '1100.00',
+    'Amount': '2200.00',
+    'Total': '2200.00',
+    'Email': 'Santoshvarma0988@gmail.com',
+    'Phone number': '9999999999',
+    'Address': 'Mumbai, India'
+}
+
+Note that the expected output you provided has some incorrect values, such as the invoice number, description, and email. I assume these are typos and corrected them accordingly.
+2025-01-29 17:11:59,996 - invoice_extraction_bot - DEBUG - Parsed Data Dict: {'Invoice no.': '1001329', 'Description': 'Office Chair', 'Quantity': '2', 'Date': '5/4/2023', 'Unit price': '1100.00', 'Amount': '2200.00', 'Total': '2200.00', 'Email': 'Santoshvarma0988@gmail.com', 'Phone number': '9999999999', 'Address': 'Mumbai, India'}
+2025-01-29 17:11:59,998 - invoice_extraction_bot - INFO - Data extraction process completed.
+2025-01-29 17:11:59,999 - invoice_extraction_bot - INFO - Processing image file: invoice_1_page-0001.jpg
+2025-01-31 21:23:36,682 - invoice_extraction_bot - INFO - Initialized Groq model.
+2025-01-31 21:23:40,915 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-01-31 21:24:02,632 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-01-31 21:24:04,049 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-01-31 21:24:04,067 - invoice_extraction_bot - INFO - Processing image file: invoice_1_page-0001.jpg
+2025-01-31 21:24:21,125 - invoice_extraction_bot - INFO - Processing PDF file: invoice_1001329.pdf
+2025-01-31 21:24:21,131 - invoice_extraction_bot - INFO - Processing file: invoice_1001329.pdf
+2025-01-31 21:24:21,131 - invoice_extraction_bot - INFO - Starting PDF text extraction.
+2025-01-31 21:24:21,175 - invoice_extraction_bot - INFO - PDF text extraction completed.
+2025-01-31 21:24:21,175 - invoice_extraction_bot - DEBUG - Extracted Raw Data: ExcelCult
+India
+Bill To
+Ms.Santoshi
+Mumbai, India
+Santoshvarma0988@gmail.com
+9999999999
+ 
+  
+Invoice no.
+1001329
+Date
+5/4/2023
+Description
+Quantity
+Unit price
+Amount
+Total
+$2,200.00
+Office Chair
+2
+$1,100.00
+$2,200.00
+System Generated
+ 
+2025-01-31 21:24:21,175 - invoice_extraction_bot - INFO - Sending data to Groq API for extraction.
+2025-01-31 21:24:22,039 - invoice_extraction_bot - DEBUG - Groq API Response: Here is the extracted data without the dollar symbols:
+
+```
+{
+    'Invoice no.': '1001329',
+    'Description': 'Office Chair',
+    'Quantity': '2',
+    'Date': '5/4/2023',
+    'Unit price': '1100.00',
+    'Amount': '2200.00',
+    'Total': '2200.00',
+    'Email': 'Santoshvarma0988@gmail.com',
+    'Phone number': '9999999999',
+    'Address': 'Mumbai, India'
+}
+```
+
+Note that I removed the dollar symbols from the 'Unit price', 'Amount', and 'Total' fields as per your request. I also replaced the 'HP Laptop' and 'Hyderabad, India' values with the actual values present in the original data.
+2025-01-31 21:24:22,039 - invoice_extraction_bot - DEBUG - Parsed Data Dict: {'Invoice no.': '1001329', 'Description': 'Office Chair', 'Quantity': '2', 'Date': '5/4/2023', 'Unit price': '1100.00', 'Amount': '2200.00', 'Total': '2200.00', 'Email': 'Santoshvarma0988@gmail.com', 'Phone number': '9999999999', 'Address': 'Mumbai, India'}
+2025-01-31 21:24:22,039 - invoice_extraction_bot - INFO - Data extraction process completed.
+2025-01-31 21:24:22,071 - invoice_extraction_bot - ERROR - Error during data extraction: ('cannot mix list and non-list, non-null values', 'Conversion failed for column Description with type object')
+Traceback (most recent call last):
+  File "C:\Users\amars\Desktop\Invoice_Data_Extraction_LLM-main-main\venv\lib\site-packages\streamlit\dataframe_util.py", line 815, in convert_pandas_df_to_arrow_bytes
+    table = pa.Table.from_pandas(df)
+  File "pyarrow\\table.pxi", line 4751, in pyarrow.lib.Table.from_pandas
+  File "C:\Users\amars\Desktop\Invoice_Data_Extraction_LLM-main-main\venv\lib\site-packages\pyarrow\pandas_compat.py", line 639, in dataframe_to_arrays
+    arrays = [convert_column(c, f)
+  File "C:\Users\amars\Desktop\Invoice_Data_Extraction_LLM-main-main\venv\lib\site-packages\pyarrow\pandas_compat.py", line 639, in <listcomp>
+    arrays = [convert_column(c, f)
+  File "C:\Users\amars\Desktop\Invoice_Data_Extraction_LLM-main-main\venv\lib\site-packages\pyarrow\pandas_compat.py", line 626, in convert_column
+    raise e
+  File "C:\Users\amars\Desktop\Invoice_Data_Extraction_LLM-main-main\venv\lib\site-packages\pyarrow\pandas_compat.py", line 620, in convert_column
+    result = pa.array(col, type=type_, from_pandas=True, safe=safe)
+  File "pyarrow\\array.pxi", line 362, in pyarrow.lib.array
+  File "pyarrow\\array.pxi", line 87, in pyarrow.lib._ndarray_to_array
+  File "pyarrow\\error.pxi", line 92, in pyarrow.lib.check_status
+pyarrow.lib.ArrowInvalid: ('cannot mix list and non-list, non-null values', 'Conversion failed for column Description with type object')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amars\Desktop\Invoice_Data_Extraction_LLM-main-main\app.py", line 128, in main
+    st.write(combined_data.head())
+  File "C:\Users\amars\Desktop\Invoice_Data_Extraction_LLM-main-main\venv\lib\site-packages\streamlit\runtime\metrics_util.py", line 409, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+  File "C:\Users\amars\Desktop\Invoice_Data_Extraction_LLM-main-main\venv\lib\site-packages\streamlit\elements\write.py", line 440, in write
+    self.dg.dataframe(arg)
+  File "C:\Users\amars\Desktop\Invoice_Data_Extraction_LLM-main-main\venv\lib\site-packages\streamlit\runtime\metrics_util.py", line 409, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+  File "C:\Users\amars\Desktop\Invoice_Data_Extraction_LLM-main-main\venv\lib\site-packages\streamlit\elements\arrow.py", line 589, in dataframe
+    proto.data = dataframe_util.convert_pandas_df_to_arrow_bytes(data_df)
+  File "C:\Users\amars\Desktop\Invoice_Data_Extraction_LLM-main-main\venv\lib\site-packages\streamlit\dataframe_util.py", line 824, in convert_pandas_df_to_arrow_bytes
+    table = pa.Table.from_pandas(df)
+  File "pyarrow\\table.pxi", line 4751, in pyarrow.lib.Table.from_pandas
+  File "C:\Users\amars\Desktop\Invoice_Data_Extraction_LLM-main-main\venv\lib\site-packages\pyarrow\pandas_compat.py", line 639, in dataframe_to_arrays
+    arrays = [convert_column(c, f)
+  File "C:\Users\amars\Desktop\Invoice_Data_Extraction_LLM-main-main\venv\lib\site-packages\pyarrow\pandas_compat.py", line 639, in <listcomp>
+    arrays = [convert_column(c, f)
+  File "C:\Users\amars\Desktop\Invoice_Data_Extraction_LLM-main-main\venv\lib\site-packages\pyarrow\pandas_compat.py", line 626, in convert_column
+    raise e
+  File "C:\Users\amars\Desktop\Invoice_Data_Extraction_LLM-main-main\venv\lib\site-packages\pyarrow\pandas_compat.py", line 620, in convert_column
+    result = pa.array(col, type=type_, from_pandas=True, safe=safe)
+  File "pyarrow\\array.pxi", line 362, in pyarrow.lib.array
+  File "pyarrow\\array.pxi", line 87, in pyarrow.lib._ndarray_to_array
+  File "pyarrow\\error.pxi", line 92, in pyarrow.lib.check_status
+pyarrow.lib.ArrowInvalid: ('cannot mix list and non-list, non-null values', 'Conversion failed for column Description with type object')
+2025-01-31 21:24:35,461 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-01-31 21:24:37,156 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-01-31 21:24:37,174 - invoice_extraction_bot - INFO - Processing image file: invoice_1_page-0001.jpg
+2025-02-10 13:46:15,339 - invoice_extraction_bot - INFO - Initialized Groq model.
+2025-02-10 13:46:24,380 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-10 14:00:36,038 - invoice_extraction_bot - INFO - Initialized Groq model.
+2025-02-10 14:00:43,801 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-10 14:09:34,613 - invoice_extraction_bot - INFO - Initialized Groq model.
+2025-02-10 14:09:42,853 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-10 14:12:08,024 - invoice_extraction_bot - INFO - Initialized Groq model.
+2025-02-10 14:12:15,861 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-10 14:15:58,359 - invoice_extraction_bot - INFO - Initialized Groq model.
+2025-02-10 14:16:06,163 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-10 14:18:39,110 - invoice_extraction_bot - INFO - Initialized Groq model.
+2025-02-10 14:18:46,969 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-10 14:19:58,089 - invoice_extraction_bot - INFO - Initialized Groq model.
+2025-02-10 14:20:02,838 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-10 14:25:35,755 - invoice_extraction_bot - INFO - Initialized Groq model.
+2025-02-10 14:25:43,584 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-10 14:28:43,706 - invoice_extraction_bot - INFO - Initialized Groq model.
+2025-02-10 14:28:51,592 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-10 14:34:47,722 - invoice_extraction_bot - INFO - Initialized Groq model.
+2025-02-10 14:34:56,051 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-10 14:47:28,712 - invoice_extraction_bot - INFO - Initialized Groq model.
+2025-02-10 14:47:36,832 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-10 14:49:52,932 - invoice_extraction_bot - INFO - Initialized Groq model.
+2025-02-10 14:49:57,995 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-10 14:51:52,002 - invoice_extraction_bot - INFO - Initialized Groq model.
+2025-02-10 14:51:58,135 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-10 14:53:09,379 - invoice_extraction_bot - INFO - Initialized Groq model.
+2025-02-10 14:53:15,848 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-10 14:54:40,445 - invoice_extraction_bot - INFO - Initialized Groq model.
+2025-02-10 14:54:44,426 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-10 14:57:31,845 - invoice_extraction_bot - INFO - Initialized Groq model.
+2025-02-10 14:57:34,235 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-10 14:58:34,208 - invoice_extraction_bot - INFO - Initialized Groq model.
+2025-02-10 14:58:36,407 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-10 14:59:31,066 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-10 14:59:32,810 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-10 14:59:32,823 - invoice_extraction_bot - INFO - Processing image file: invoice_1_page-0001.jpg
+2025-02-10 14:59:49,684 - invoice_extraction_bot - INFO - Processing PDF file: invoice_1001329.pdf
+2025-02-10 14:59:49,691 - invoice_extraction_bot - INFO - Processing file: invoice_1001329.pdf
+2025-02-10 14:59:49,691 - invoice_extraction_bot - INFO - Starting PDF text extraction.
+2025-02-10 14:59:49,738 - invoice_extraction_bot - INFO - PDF text extraction completed.
+2025-02-10 14:59:49,738 - invoice_extraction_bot - DEBUG - Extracted Raw Data: ExcelCult
+India
+Bill To
+Ms.Santoshi
+Mumbai, India
+Santoshvarma0988@gmail.com
+9999999999
+ 
+  
+Invoice no.
+1001329
+Date
+5/4/2023
+Description
+Quantity
+Unit price
+Amount
+Total
+$2,200.00
+Office Chair
+2
+$1,100.00
+$2,200.00
+System Generated
+ 
+2025-02-10 14:59:49,738 - invoice_extraction_bot - INFO - Sending data to Groq API for extraction.
+2025-02-10 14:59:50,322 - invoice_extraction_bot - DEBUG - Groq API Response: Here are the extracted values:
+
+* Invoice no.: 1001329
+* Description: Office Chair
+* Quantity: 2
+* Date: 5/4/2023
+* Unit price: 1100.00
+* Amount: 2200.00
+* Total: 2200.00
+* Email: Santoshvarma0988@gmail.com
+* Phone number: 9999999999
+* Address: Mumbai, India
+
+After removing the dollar symbols, the output is:
+
+{
+    'Invoice no.': '1001329',
+    'Description': 'Office Chair',
+    'Quantity': '2',
+    'Date': '5/4/2023',
+    'Unit price': '1100.00',
+    'Amount': '2200.00',
+    'Total': '2200.00',
+    'Email': 'Santoshvarma0988@gmail.com',
+    'Phone number': '9999999999',
+    'Address': 'Mumbai, India'
+}
+
+Note that the expected output you provided has some mismatched values, such as the invoice number being 2001321 instead of 1001329, and the description being "HP Laptop" instead of "Office Chair".
+2025-02-10 14:59:50,323 - invoice_extraction_bot - DEBUG - Parsed Data Dict: {'Invoice no.': '1001329', 'Description': 'Office Chair', 'Quantity': '2', 'Date': '5/4/2023', 'Unit price': '1100.00', 'Amount': '2200.00', 'Total': '2200.00', 'Email': 'Santoshvarma0988@gmail.com', 'Phone number': '9999999999', 'Address': 'Mumbai, India'}
+2025-02-10 14:59:50,328 - invoice_extraction_bot - INFO - Data extraction process completed.
+2025-02-10 15:02:47,731 - invoice_extraction_bot - INFO - Initialized Groq model.
+2025-02-10 15:02:51,723 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-10 15:41:13,378 - invoice_extraction_bot - INFO - Initialized Groq model.
+2025-02-10 15:41:18,106 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-10 15:41:49,168 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-10 15:41:50,582 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-10 15:41:50,587 - invoice_extraction_bot - INFO - Processing image file: invoice_1_page-0001.jpg
+2025-02-10 15:53:47,434 - invoice_extraction_bot - INFO - Initialized Groq model.
+2025-02-10 15:53:50,425 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:23:49,369 - invoice_extraction_bot - INFO - Initialized Groq model.
+2025-02-19 01:23:57,335 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:24:16,266 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:24:18,297 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:24:18,312 - invoice_extraction_bot - INFO - Processing PDF file: invoice_1001329.pdf
+2025-02-19 01:24:18,331 - invoice_extraction_bot - INFO - Processing file: invoice_1001329.pdf
+2025-02-19 01:24:18,334 - invoice_extraction_bot - INFO - Starting PDF text extraction.
+2025-02-19 01:24:18,431 - invoice_extraction_bot - INFO - PDF text extraction completed.
+2025-02-19 01:24:18,431 - invoice_extraction_bot - DEBUG - Extracted Raw Data: ExcelCult
+India
+Bill To
+Ms.Santoshi
+Mumbai, India
+Santoshvarma0988@gmail.com
+9999999999
+ 
+  
+Invoice no.
+1001329
+Date
+5/4/2023
+Description
+Quantity
+Unit price
+Amount
+Total
+$2,200.00
+Office Chair
+2
+$1,100.00
+$2,200.00
+System Generated
+ 
+2025-02-19 01:24:18,431 - invoice_extraction_bot - INFO - Sending data to Groq API for extraction.
+2025-02-19 01:24:19,283 - invoice_extraction_bot - DEBUG - Groq API Response: Here is the extracted data:
+
+{
+    'Invoice no.': '1001329',
+    'Description': 'Office Chair',
+    'Quantity': '2',
+    'Date': '5/4/2023',
+    'Unit price': '1100.00',
+    'Amount': '2200.00',
+    'Total': '2200.00',
+    'Email': 'Santoshvarma0988@gmail.com',
+    'Phone number': '9999999999',
+    'Address': 'Mumbai, India'
+}
+
+Note that I removed the dollar symbols from the 'Unit price', 'Amount', and 'Total' fields as per your request.
+2025-02-19 01:24:19,285 - invoice_extraction_bot - DEBUG - Parsed Data Dict: {'Invoice no.': '1001329', 'Description': 'Office Chair', 'Quantity': '2', 'Date': '5/4/2023', 'Unit price': '1100.00', 'Amount': '2200.00', 'Total': '2200.00', 'Email': 'Santoshvarma0988@gmail.com', 'Phone number': '9999999999', 'Address': 'Mumbai, India'}
+2025-02-19 01:24:19,285 - invoice_extraction_bot - INFO - Data extraction process completed.
+2025-02-19 01:24:27,108 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:24:38,065 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:24:39,946 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:24:39,970 - invoice_extraction_bot - INFO - Processing PDF file: invoice_2001321.pdf
+2025-02-19 01:24:39,970 - invoice_extraction_bot - INFO - Processing file: invoice_2001321.pdf
+2025-02-19 01:24:39,970 - invoice_extraction_bot - INFO - Starting PDF text extraction.
+2025-02-19 01:24:40,065 - invoice_extraction_bot - INFO - PDF text extraction completed.
+2025-02-19 01:24:40,067 - invoice_extraction_bot - DEBUG - Extracted Raw Data: ExcelCult
+India
+Bill To
+Mr.Sharath Raju
+Hyderabad, India
+sharathkumarraju@proton.me
+8888888888
+ 
+  
+Invoice no.
+2001321
+Date
+5/4/2023
+Description
+Quantity
+Unit price
+Amount
+Total
+$500.00
+HP Laptop
+1
+$500.00
+$500.00
+System Generated
+ 
+2025-02-19 01:24:40,067 - invoice_extraction_bot - INFO - Sending data to Groq API for extraction.
+2025-02-19 01:24:40,655 - invoice_extraction_bot - DEBUG - Groq API Response: Here is the extracted data:
+
+```
+{
+    'Invoice no.': '2001321',
+    'Description': 'HP Laptop',
+    'Quantity': '1',
+    'Date': '5/4/2023',
+    'Unit price': '500.00',
+    'Amount': '500.00',
+    'Total': '500.00',
+    'Email': 'sharathkumarraju@proton.me',
+    'Phone number': '8888888888',
+    'Address': 'Hyderabad, India'
+}
+```
+
+Note that I removed the dollar symbols from the 'Unit price', 'Amount', and 'Total' fields as per your request.
+2025-02-19 01:24:40,655 - invoice_extraction_bot - DEBUG - Parsed Data Dict: {'Invoice no.': '2001321', 'Description': 'HP Laptop', 'Quantity': '1', 'Date': '5/4/2023', 'Unit price': '500.00', 'Amount': '500.00', 'Total': '500.00', 'Email': 'sharathkumarraju@proton.me', 'Phone number': '8888888888', 'Address': 'Hyderabad, India'}
+2025-02-19 01:24:40,655 - invoice_extraction_bot - INFO - Data extraction process completed.
+2025-02-19 01:24:45,252 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:24:50,521 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:24:52,146 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:24:52,164 - invoice_extraction_bot - INFO - Processing PDF file: invoice_3452334.pdf
+2025-02-19 01:24:52,169 - invoice_extraction_bot - INFO - Processing file: invoice_3452334.pdf
+2025-02-19 01:24:52,171 - invoice_extraction_bot - INFO - Starting PDF text extraction.
+2025-02-19 01:24:52,230 - invoice_extraction_bot - INFO - PDF text extraction completed.
+2025-02-19 01:24:52,230 - invoice_extraction_bot - DEBUG - Extracted Raw Data: ExcelCult
+India
+Bill To
+Mr.Raju
+USA
+ 
+  
+Invoice Number
+3452334
+Date
+5/5/2023
+Description
+Quantity
+Unit price
+Amount
+Total
+$50.00
+Graphics Card
+1
+$50.00
+$50.00
+ 
+2025-02-19 01:24:52,230 - invoice_extraction_bot - INFO - Sending data to Groq API for extraction.
+2025-02-19 01:24:53,096 - invoice_extraction_bot - DEBUG - Groq API Response: Here is the extracted data:
+
+{
+    'Invoice no.': '3452334',
+    'Description': 'Graphics Card',
+    'Quantity': '1',
+    'Date': '5/5/2023',
+    'Unit price': '50.00',
+    'Amount': '50.00',
+    'Total': '50.00',
+    'Email': 'N/A',
+    'Phone number': 'N/A',
+    'Address': 'N/A'
+}
+
+Note that I removed the dollar symbols from the 'Unit price', 'Amount', and 'Total' fields as per your request.
+2025-02-19 01:24:53,096 - invoice_extraction_bot - DEBUG - Parsed Data Dict: {'Invoice no.': '3452334', 'Description': 'Graphics Card', 'Quantity': '1', 'Date': '5/5/2023', 'Unit price': '50.00', 'Amount': '50.00', 'Total': '50.00', 'Email': 'N/A', 'Phone number': 'N/A', 'Address': 'N/A'}
+2025-02-19 01:24:53,100 - invoice_extraction_bot - INFO - Data extraction process completed.
+2025-02-19 01:25:43,633 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:25:51,486 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:25:52,982 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:25:53,002 - invoice_extraction_bot - INFO - Processing PDF file: sample-invoice.pdf
+2025-02-19 01:25:53,011 - invoice_extraction_bot - INFO - Processing file: sample-invoice.pdf
+2025-02-19 01:25:53,011 - invoice_extraction_bot - INFO - Starting PDF text extraction.
+2025-02-19 01:25:53,427 - invoice_extraction_bot - INFO - PDF text extraction completed.
+2025-02-19 01:25:53,427 - invoice_extraction_bot - DEBUG - Extracted Raw Data: CPB Software (Germany) GmbH - Im Bruch 3 - 63897 Miltenberg/Main
+Musterkunde AG
+Mr. John Doe
+Musterstr. 23
+12345 Musterstadt Name:  Stefanie Müller
+Phone: +49 9371 9786-0
+Invoice WMACCESS Internet
+VAT No. DE199378386
+Invoice No
+123100401
+Amount
+-without VAT- quantity
+130,00 € 1
+10,00 € 0
+50,00 € 0
+1.000,00 € 0
+10,00 € 0
+0,58 € 14
+0,70 € 0
+1,50 € 162
+0,50 € 0
+0,80 € 0
+1,80 € 0
+0,30 € 0
+0,30 € 0
+0,40 € 0
+0,40 € 0
+0,30 € 0
+0,30 € 0
+Terms of Payment: Immediate payment without discount. Any bank char
+2025-02-19 01:25:53,427 - invoice_extraction_bot - INFO - Sending data to Groq API for extraction.
+2025-02-19 01:25:54,385 - invoice_extraction_bot - DEBUG - Groq API Response: Based on the provided data, the extracted values are:
+
+* Invoice no.: 123100401
+* Description: N/A (no description provided)
+* Quantity: N/A (no quantity values provided)
+* Date: 1. März 2024
+* Unit price: N/A (no unit price values provided)
+* Amount: 243,00
+* Total: 381,12
+* Email: N/A (no email provided)
+* Phone number: +49 9371 9786-0
+* Address: CPB Software (Germany) GmbH - Im Bruch 3 - 63897 Miltenberg/Main
+
+Here is the output in the expected format:
+
+{
+    'Invoice no.': '123100401',
+    'Description': 'N/A',
+    'Quantity': 'N/A',
+    'Date': '1. März 2024',
+    'Unit price': 'N/A',
+    'Amount': '243.00',
+    'Total': '381.12',
+    'Email': 'N/A',
+    'Phone number': '+49 9371 9786-0',
+    'Address': 'CPB Software (Germany) GmbH - Im Bruch 3 - 63897 Miltenberg/Main'
+}
+2025-02-19 01:25:54,385 - invoice_extraction_bot - DEBUG - Parsed Data Dict: {'Invoice no.': '123100401', 'Description': 'N/A', 'Quantity': 'N/A', 'Date': '1. März 2024', 'Unit price': 'N/A', 'Amount': '243.00', 'Total': '381.12', 'Email': 'N/A', 'Phone number': '+49 9371 9786-0', 'Address': 'CPB Software (Germany) GmbH - Im Bruch 3 - 63897 Miltenberg/Main'}
+2025-02-19 01:25:54,385 - invoice_extraction_bot - INFO - Data extraction process completed.
+2025-02-19 01:31:09,244 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:31:15,319 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:31:17,065 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:31:17,090 - invoice_extraction_bot - INFO - Processing image file: invoice-template-us-dexter-750px.png
+2025-02-19 01:31:54,607 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:35:46,869 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:35:48,451 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:35:48,468 - invoice_extraction_bot - INFO - Processing image file: invoice sample.jpg
+2025-02-19 01:36:28,111 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:37:49,679 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:37:51,574 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:37:51,586 - invoice_extraction_bot - INFO - Processing image file: Invoice_1.jpg
+2025-02-19 01:38:08,664 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:58:19,972 - invoice_extraction_bot - INFO - Initialized Groq model.
+2025-02-19 01:58:27,993 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:59:29,482 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:59:32,226 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:59:32,249 - invoice_extraction_bot - INFO - Processing file: invoice_1001329.pdf
+2025-02-19 01:59:32,258 - invoice_extraction_bot - INFO - Starting PDF text extraction.
+2025-02-19 01:59:32,368 - invoice_extraction_bot - INFO - PDF text extraction completed.
+2025-02-19 01:59:32,372 - invoice_extraction_bot - INFO - Sending data to Groq API for extraction.
+2025-02-19 01:59:33,089 - invoice_extraction_bot - DEBUG - Groq API Response: Here is the extracted data:
+
+{
+    'Invoice no.': '1001329',
+    'Description': 'Office Chair',
+    'Quantity': '2',
+    'Date': '5/4/2023',
+    'Unit price': '1100.00',
+    'Amount': '2200.00',
+    'Total': '2200.00',
+    'Email': 'Santoshvarma0988@gmail.com',
+    'Phone number': '9999999999',
+    'Address': 'Mumbai, India'
+}
+
+Note that I removed the dollar symbols from the 'Unit price', 'Amount', and 'Total' fields as per your request.
+2025-02-19 01:59:33,089 - invoice_extraction_bot - DEBUG - Parsed Data Dict: {'Invoice no.': '1001329', 'Description': 'Office Chair', 'Quantity': '2', 'Date': '5/4/2023', 'Unit price': '1100.00', 'Amount': '2200.00', 'Total': '2200.00', 'Email': 'Santoshvarma0988@gmail.com', 'Phone number': '9999999999', 'Address': 'Mumbai, India'}
+2025-02-19 01:59:33,092 - invoice_extraction_bot - INFO - Data extraction process completed.
+2025-02-19 01:59:41,520 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:59:48,593 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:59:50,956 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 01:59:50,979 - invoice_extraction_bot - INFO - Processing file: invoice_1_page-0001.jpg
+2025-02-19 02:00:26,937 - invoice_extraction_bot - INFO - Sending data to Groq API for extraction.
+2025-02-19 02:00:27,620 - invoice_extraction_bot - DEBUG - Groq API Response: Here is the extracted data:
+
+```
+{
+    'Invoice no.': '61356291',
+    'Description': 'Wine Glasses Goblets Pair Clear, Glass With Hooks Stemware Storage, Multiple Uses Iron Wine Rack Hanging Glass Replacement Corkscrew Parts, Spiral Worm Wine Opener Bottle Houdini HOME ESSENTIALS GRADIENT, STEMLESS WINE GLASSES SET OF 4 20 FL OZ (591 ml) NEW',
+    'Quantity': '5.00, 4.00, 1.00, 1.00',
+    'Date': '09/06/2012',
+    'Unit price': '12.00, 28.08, 7.50, 12.99',
+    'Amount': '60.00, 112.32, 7.50, 12.99',
+    'Total': '212.09',
+    'Email': 'N/A',
+    'Phone number': 'N/A',
+    'Address': 'Smithmouth, NC 26872 Hortonshire, MS 93248'
+}
+```
+
+Note that the 'Email', 'Phone number', and 'Address' fields are missing in the original data, so I left them as 'N/A'. Also, the 'Quantity' and 'Unit price' fields are lists of values, as there are multiple items in the invoice.
+2025-02-19 02:00:27,620 - invoice_extraction_bot - DEBUG - Parsed Data Dict: {'Invoice no.': '61356291', 'Description': 'Wine Glasses Goblets Pair Clear, Glass With Hooks Stemware Storage, Multiple Uses Iron Wine Rack Hanging Glass Replacement Corkscrew Parts, Spiral Worm Wine Opener Bottle Houdini HOME ESSENTIALS GRADIENT, STEMLESS WINE GLASSES SET OF 4 20 FL OZ (591 ml) NEW', 'Quantity': '5.00, 4.00, 1.00, 1.00', 'Date': '09/06/2012', 'Unit price': '12.00, 28.08, 7.50, 12.99', 'Amount': '60.00, 112.32, 7.50, 12.99', 'Total': '212.09', 'Email': 'N/A', 'Phone number': 'N/A', 'Address': 'Smithmouth, NC 26872 Hortonshire, MS 93248'}
+2025-02-19 02:00:27,620 - invoice_extraction_bot - INFO - Data extraction process completed.
+2025-02-19 02:00:46,264 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 02:03:14,021 - invoice_extraction_bot - INFO - Initialized Groq model.
+2025-02-19 02:03:18,616 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 18:01:32,966 - invoice_extraction_bot - INFO - Initialized Groq model.
+2025-02-19 18:01:37,986 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 18:02:21,255 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 18:02:22,994 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 18:02:23,013 - invoice_extraction_bot - INFO - Processing file: invoice_Valerie Dominguez_19175.pdf
+2025-02-19 18:02:23,014 - invoice_extraction_bot - INFO - Starting PDF text extraction.
+2025-02-19 18:02:23,044 - invoice_extraction_bot - INFO - PDF text extraction completed.
+2025-02-19 18:02:23,046 - invoice_extraction_bot - INFO - Sending data to Groq API for extraction.
+2025-02-19 18:02:23,831 - invoice_extraction_bot - DEBUG - Groq API Response: Here is the extracted data:
+
+```
+{
+    'Invoice no.': '19175',
+    'Description': 'Samsung Smart Phone, VoIP',
+    'Quantity': '1',
+    'Date': 'Jan 19 2013',
+    'Unit price': '636.24',
+    'Amount': '636.24',
+    'Total': '718.64',
+    'Email': 'N/A',
+    'Phone number': 'N/A',
+    'Address': 'Northampton, England, United Kingdom'
+}
+```
+
+Note that the `Email`, `Phone number` fields are missing in the original data, so they are set to 'N/A'.
+2025-02-19 18:02:23,831 - invoice_extraction_bot - DEBUG - Parsed Data Dict: {'Invoice no.': '19175', 'Description': 'Samsung Smart Phone, VoIP', 'Quantity': '1', 'Date': 'Jan 19 2013', 'Unit price': '636.24', 'Amount': '636.24', 'Total': '718.64', 'Email': 'N/A', 'Phone number': 'N/A', 'Address': 'Northampton, England, United Kingdom'}
+2025-02-19 18:02:23,837 - invoice_extraction_bot - INFO - Data extraction process completed.
+2025-02-19 18:03:22,627 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 18:03:24,343 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 18:03:24,354 - invoice_extraction_bot - INFO - Processing file: invoice_Valerie Dominguez_19175.pdf
+2025-02-19 18:03:24,355 - invoice_extraction_bot - INFO - Starting PDF text extraction.
+2025-02-19 18:03:24,385 - invoice_extraction_bot - INFO - PDF text extraction completed.
+2025-02-19 18:03:24,386 - invoice_extraction_bot - INFO - Sending data to Groq API for extraction.
+2025-02-19 18:03:24,886 - invoice_extraction_bot - DEBUG - Groq API Response: Here is the extracted data:
+
+```
+{
+    'Invoice no.': '19175',
+    'Description': 'Samsung Smart Phone, VoIP',
+    'Quantity': '1',
+    'Date': 'Jan 19 2013',
+    'Unit price': '636.24',
+    'Amount': '636.24',
+    'Total': '718.64',
+    'Email': 'N/A',
+    'Phone number': 'N/A',
+    'Address': 'Northampton, England, United Kingdom'
+}
+```
+
+Note that the fields "Email", "Phone number" and "Description" are not present in the original data, so they are left as 'N/A'.
+2025-02-19 18:03:24,886 - invoice_extraction_bot - DEBUG - Parsed Data Dict: {'Invoice no.': '19175', 'Description': 'Samsung Smart Phone, VoIP', 'Quantity': '1', 'Date': 'Jan 19 2013', 'Unit price': '636.24', 'Amount': '636.24', 'Total': '718.64', 'Email': 'N/A', 'Phone number': 'N/A', 'Address': 'Northampton, England, United Kingdom'}
+2025-02-19 18:03:24,887 - invoice_extraction_bot - INFO - Processing file: invoice_Trudy Schmidt_14380.pdf
+2025-02-19 18:03:24,888 - invoice_extraction_bot - INFO - Starting PDF text extraction.
+2025-02-19 18:03:24,925 - invoice_extraction_bot - INFO - PDF text extraction completed.
+2025-02-19 18:03:24,925 - invoice_extraction_bot - INFO - Sending data to Groq API for extraction.
+2025-02-19 18:03:26,225 - invoice_extraction_bot - DEBUG - Groq API Response: Here is the extracted data:
+
+```
+{
+    'Invoice no.': '14380',
+    'Description': 'Hewlett Fax Machine, High-Speed, Copiers, Technology, TEC-CO-4577',
+    'Quantity': '7, $1, 98.86',
+    'Date': 'Jan 10 2013',
+    'Unit price': '2,004.16, $14.02909, $1.40291',
+    'Amount': '14,029.09, $12,725.04',
+    'Total': '12,725.04',
+    'Email': 'N/A',
+    'Phone number': 'N/A',
+    'Address': 'London, England, United Kingdom'
+}
+```
+
+Note that the 'Description' field contains multiple items, and the 'Quantity', 'Unit price', and 'Amount' fields contain multiple values. The 'Email', 'Phone number', and 'Address' fields are missing, so they are returned as 'N/A'.
+2025-02-19 18:03:26,226 - invoice_extraction_bot - DEBUG - Parsed Data Dict: {'Invoice no.': '14380', 'Description': 'Hewlett Fax Machine, High-Speed, Copiers, Technology, TEC-CO-4577', 'Quantity': '7, $1, 98.86', 'Date': 'Jan 10 2013', 'Unit price': '2,004.16, $14.02909, $1.40291', 'Amount': '14,029.09, $12,725.04', 'Total': '12,725.04', 'Email': 'N/A', 'Phone number': 'N/A', 'Address': 'London, England, United Kingdom'}
+2025-02-19 18:03:26,228 - invoice_extraction_bot - INFO - Data extraction process completed.
+2025-02-19 18:04:25,637 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 18:04:27,802 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 18:04:27,816 - invoice_extraction_bot - INFO - Processing file: invoice_Valerie Dominguez_19175.pdf
+2025-02-19 18:04:27,818 - invoice_extraction_bot - INFO - Starting PDF text extraction.
+2025-02-19 18:04:27,847 - invoice_extraction_bot - INFO - PDF text extraction completed.
+2025-02-19 18:04:27,849 - invoice_extraction_bot - INFO - Sending data to Groq API for extraction.
+2025-02-19 18:04:28,412 - invoice_extraction_bot - DEBUG - Groq API Response: Here is the extracted data:
+
+```
+{
+    'Invoice no.': '19175',
+    'Description': 'Samsung Smart Phone, VoIP',
+    'Quantity': '1',
+    'Date': 'Jan 19 2013',
+    'Unit price': '636.24',
+    'Amount': '636.24',
+    'Total': '718.64',
+    'Email': 'N/A',
+    'Phone number': 'N/A',
+    'Address': 'Northampton, England, United Kingdom'
+}
+```
+
+Note that the fields "Email", "Phone number" and "Description" are missing in the original data, so they are set to 'N/A'.
+2025-02-19 18:04:28,412 - invoice_extraction_bot - DEBUG - Parsed Data Dict: {'Invoice no.': '19175', 'Description': 'Samsung Smart Phone, VoIP', 'Quantity': '1', 'Date': 'Jan 19 2013', 'Unit price': '636.24', 'Amount': '636.24', 'Total': '718.64', 'Email': 'N/A', 'Phone number': 'N/A', 'Address': 'Northampton, England, United Kingdom'}
+2025-02-19 18:04:28,414 - invoice_extraction_bot - INFO - Processing file: invoice_Trudy Schmidt_14380.pdf
+2025-02-19 18:04:28,414 - invoice_extraction_bot - INFO - Starting PDF text extraction.
+2025-02-19 18:04:28,443 - invoice_extraction_bot - INFO - PDF text extraction completed.
+2025-02-19 18:04:28,444 - invoice_extraction_bot - INFO - Sending data to Groq API for extraction.
+2025-02-19 18:04:28,914 - invoice_extraction_bot - DEBUG - Groq API Response: Here is the extracted data:
+
+```
+{
+    'Invoice no.': '14380',
+    'Description': 'Hewlett Fax Machine, High-Speed',
+    'Quantity': '7',
+    'Date': 'Jan 10 2013',
+    'Unit price': '2004.16',
+    'Amount': '14029.09',
+    'Total': '12725.04',
+    'Email': 'N/A',
+    'Phone number': 'N/A',
+    'Address': 'London, England, United Kingdom'
+}
+```
+
+Note that the `Email`, `Phone number` fields are missing in the original data, so I left them as 'N/A'. Also, I removed the dollar symbols from the `Unit price`, `Amount`, and `Total` fields.
+2025-02-19 18:04:28,915 - invoice_extraction_bot - DEBUG - Parsed Data Dict: {'Invoice no.': '14380', 'Description': 'Hewlett Fax Machine, High-Speed', 'Quantity': '7', 'Date': 'Jan 10 2013', 'Unit price': '2004.16', 'Amount': '14029.09', 'Total': '12725.04', 'Email': 'N/A', 'Phone number': 'N/A', 'Address': 'London, England, United Kingdom'}
+2025-02-19 18:04:28,917 - invoice_extraction_bot - INFO - Processing file: Invoice_1.jpg
+2025-02-19 18:04:43,429 - invoice_extraction_bot - INFO - Sending data to Groq API for extraction.
+2025-02-19 18:04:44,103 - invoice_extraction_bot - DEBUG - Groq API Response: Here is the extracted data:
+
+```
+{
+    'Invoice no.': '01234',
+    'Description': 'Brand consultation\nlogo design\nWebsite design\nSocial media templates\nBrand photography\nBrand guide',
+    'Quantity': '100',
+    'Date': '11.02.2030',
+    'Unit price': '100',
+    'Amount': '5100',
+    'Total': '440',
+    'Email': 'N/A',
+    'Phone number': 'N/A',
+    'Address': '123 Anywhere St , Any 77 City'
+}
+```
+
+Note that the `Description` field contains multiple lines, so I've concatenated them into a single string. Also, the `Email`, `Phone number`, and `Account No.` fields are missing, so I've filled them with 'N/A' as per your request.
+2025-02-19 18:04:44,103 - invoice_extraction_bot - DEBUG - Parsed Data Dict: {'Invoice no.': '01234', 'Description': 'Brand consultation\nlogo design\nWebsite design\nSocial media templates\nBrand photography\nBrand guide', 'Quantity': '100', 'Date': '11.02.2030', 'Unit price': '100', 'Amount': '5100', 'Total': '440', 'Email': 'N/A', 'Phone number': 'N/A', 'Address': '123 Anywhere St , Any 77 City'}
+2025-02-19 18:04:44,105 - invoice_extraction_bot - INFO - Data extraction process completed.
+2025-02-19 18:09:14,327 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 18:09:15,275 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 18:09:16,505 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 18:09:24,351 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 18:09:30,436 - invoice_extraction_bot - INFO - Invoice Extraction Bot started.
+2025-02-19 18:09:30,446 - invoice_extraction_bot - INFO - Processing file: excel-invoice-template.png
+2025-02-19 18:09:36,865 - invoice_extraction_bot - INFO - Sending data to Groq API for extraction.
+2025-02-19 18:09:37,824 - invoice_extraction_bot - DEBUG - Groq API Response: Here is the extracted data:
+
+```
+{
+    'Invoice no.': '123456',
+    'Description': 'Service Fee_ 230.00 [Labor: hours at S75/hr] 375.00 [Parts] 345.00',
+    'Quantity': 'N/A',
+    'Date': '12/9/2019',
+    'Unit price': 'N/A',
+    'Amount': '950.00',
+    'Total': '971.56',
+    'Email': '[Name] [Email]',
+    'Phone number': '[COo-CoO-CCCO]',
+    'Address': '[Street Accres] [City, ST  ZIP]'
+}
+```
+
+Note that I was unable to extract the following values:
+
+* Quantity: There is no quantity mentioned in the provided data.
+* Unit price: There is no unit price mentioned in the provided data.
+* Email: The email address is not explicitly mentioned, but it can be inferred as [Name] [Email].
+* Phone number: The phone number is mentioned as [COo-CoO-CCCO], but it's not clear if this is the customer's phone number or the company's phone number.
+
+The other values were extracted as mentioned.
+2025-02-19 18:09:37,825 - invoice_extraction_bot - DEBUG - Parsed Data Dict: {'Invoice no.': '123456', 'Description': 'Service Fee_ 230.00 [Labor: hours at S75/hr] 375.00 [Parts] 345.00', 'Quantity': 'N/A', 'Date': '12/9/2019', 'Unit price': 'N/A', 'Amount': '950.00', 'Total': '971.56', 'Email': '[Name] [Email]', 'Phone number': '[COo-CoO-CCCO]', 'Address': '[Street Accres] [City, ST  ZIP]'}
+2025-02-19 18:09:37,828 - invoice_extraction_bot - INFO - Data extraction process completed.
