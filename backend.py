@@ -132,7 +132,30 @@ def create_docs(user_file_list):
                     cleaned_data = llm_extracted_data.replace("'", '"').replace("\n", "")
                     data_dict = json.loads(cleaned_data)
                     logger.debug(f"Parsed Data Dict: {data_dict}")
-                    df = pd.concat([df, pd.DataFrame([data_dict])], ignore_index=True)
+
+                    # If the data contains multiple line items, split them into separate rows
+                    if isinstance(data_dict['Description'], str) and '\n' in data_dict['Description']:
+                        descriptions = data_dict['Description'].split('\n')
+                        quantities = data_dict['Quantity'].split('\n') if isinstance(data_dict['Quantity'], str) else ['N/A'] * len(descriptions)
+                        unit_prices = data_dict['Unit price'].split('\n') if isinstance(data_dict['Unit price'], str) else ['N/A'] * len(descriptions)
+                        amounts = data_dict['Amount'].split('\n') if isinstance(data_dict['Amount'], str) else ['N/A'] * len(descriptions)
+
+                        for desc, qty, unit_price, amt in zip(descriptions, quantities, unit_prices, amounts):
+                            row = {
+                                'Invoice no.': data_dict['Invoice no.'],
+                                'Description': desc,
+                                'Quantity': qty,
+                                'Date': data_dict['Date'],
+                                'Unit price': unit_price,
+                                'Amount': amt,
+                                'Total': data_dict['Total'],
+                                'Email': data_dict['Email'],
+                                'Phone number': data_dict['Phone number'],
+                                'Address': data_dict['Address']
+                            }
+                            df = pd.concat([df, pd.DataFrame([row])], ignore_index=True)
+                    else:
+                        df = pd.concat([df, pd.DataFrame([data_dict])], ignore_index=True)
                 except json.JSONDecodeError as e:
                     logger.error(f"Error parsing JSON: {e}", exc_info=True)
                 except Exception as e:
