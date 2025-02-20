@@ -24,7 +24,6 @@ logger.info("Initialized Groq model.")
 
 reader = easyocr.Reader(['en'])  # EasyOCR for OCR fallback
 
-
 def get_pdf_text_with_ocr(pdf_doc):
     """Extract text from a PDF document, with OCR fallback for scanned PDFs."""
     text = ""
@@ -34,7 +33,7 @@ def get_pdf_text_with_ocr(pdf_doc):
         for i, page in enumerate(pdf_reader.pages):
             page_text = page.extract_text()
             if page_text:
-                text += page_text
+                text += page_text + "\n"
         if text.strip():
             logger.info("PDF text extraction completed.")
             return text
@@ -46,25 +45,23 @@ def get_pdf_text_with_ocr(pdf_doc):
     pdf_images = convert_from_bytes(pdf_doc)
     for img in pdf_images:
         ocr_result = reader.readtext(np.array(img))
-        text += " ".join([item[1] for item in ocr_result])
+        text += "\n".join([item[1] for item in ocr_result]) + "\n"
     return text
-
 
 def process_image(image_file):
     """Process an image file to extract text using OCR."""
     try:
-        # Convert uploaded file to OpenCV format
         file_bytes = np.asarray(bytearray(image_file.read()), dtype=np.uint8)
         image = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
 
-        # Perform OCR
+        # Perform OCR with line breaks
         result = reader.readtext(image)
-        raw_text = " ".join([detection[1] for detection in result])
+        raw_text = "\n".join([detection[1] for detection in result])  # Preserve line breaks
+        logger.debug(f"OCR Raw Text Output:\n{raw_text}")
         return raw_text
     except Exception as e:
         logger.error(f"Error processing image: {e}")
         return None
-
 
 def extracted_data(raw_text):
     """Extract structured data from raw text using Groq API."""
@@ -107,7 +104,6 @@ def extracted_data(raw_text):
         logger.error(f"Error during data extraction: {e}", exc_info=True)
         return None
 
-
 def create_docs(user_file_list):
     """Process the list of uploaded files (PDFs or images) and extract structured data."""
     df = pd.DataFrame(columns=['Invoice no.', 'Description', 'Quantity', 'Date', 
@@ -129,7 +125,7 @@ def create_docs(user_file_list):
             llm_extracted_data = extracted_data(raw_data)
             if llm_extracted_data:
                 try:
-                    cleaned_data = llm_extracted_data.replace("'", '"').replace("\n", "")
+                    cleaned_data = llm_extracted_data.replace("'", '"')
                     data_dict = json.loads(cleaned_data)
                     logger.debug(f"Parsed Data Dict: {data_dict}")
 
