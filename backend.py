@@ -6,19 +6,23 @@ import json
 import pandas as pd
 from pypdf import PdfReader
 from io import BytesIO
-from dotenv import load_dotenv
-from langchain_groq import ChatGroq
 import os
 from pdf2image import convert_from_bytes
+from langchain_groq import ChatGroq
 from logging_config import logger
 
-load_dotenv()
-groq_api_key = os.getenv('GROQ_API_KEY')
+# Fetch API Key from environment or Streamlit Secrets
+if "STREAMLIT" in os.environ:
+    import streamlit as st
+    groq_api_key = st.secrets["GROQ_API_KEY"]
+else:
+    groq_api_key = os.getenv("GROQ_API_KEY")
 
 if not groq_api_key:
-    logger.critical("GROQ_API_KEY is not set. Please check your .env file.")
-    raise ValueError("GROQ_API_KEY is not set. Please check your .env file.")
+    logger.critical("GROQ_API_KEY is not set. Please check your secrets.")
+    raise ValueError("GROQ_API_KEY is not set. Please check your secrets.")
 
+# Initialize LLM Model
 llm = ChatGroq(groq_api_key=groq_api_key, model_name="Llama3-8b-8192")
 logger.info("Initialized Groq model.")
 
