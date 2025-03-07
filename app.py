@@ -4,17 +4,6 @@ from logging_config import logger
 from backend import create_docs
 import pandas as pd
 
-hide_github_icon = """
-<style>
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-header {visibility: hidden;}
-.css-1v3fvcr {visibility: hidden;}
-</style>
-"""
-
-# Inject custom CSS
-st.markdown(hide_github_icon, unsafe_allow_html=True)
 # Set the page configuration
 st.set_page_config(page_title="Invoice Extraction Bot", layout="wide")
 
