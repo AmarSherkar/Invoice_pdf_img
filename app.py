@@ -12,6 +12,10 @@ def add_custom_css():
     st.markdown(
         """
         <style>
+
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        .css-1v3fvcr {visibility: hidden;}
         
             .stButton>button {
         background-color: #4CAF50; /* Green */
@@ -23,6 +27,7 @@ def add_custom_css():
         cursor: pointer;
         transition: 0.3s;
     }
+
     .stButton>button:hover {
         background-color: #45a049;
         color: black; /* Ensure text remains black on hover */
